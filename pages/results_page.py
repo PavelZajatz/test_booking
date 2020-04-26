@@ -1,9 +1,29 @@
 from .base_page import BasePage
-from .locators import ProductPageLocators
+from .locators import SearchPageLocators
 
 
-class ProductPage(BasePage):
+class ResultPage(BasePage):
+    def should_be_result_page(self): # проверка, что есть форма логина зарегистрированного пользователя на странице
+        assert self.is_element_present(*SearchPageLocators.HOTEL_LIST), "page with listed hotels should be opened"
+    def should_be_opened_calendar(self):
+        assert self.is_element_visible(*SearchPageLocators.CALENDAR), "calendar should be displayed"
+    def should_not_be_displayed_booking_price(self):
+        assert self.is_not_element_present(*SearchPageLocators.BOOKING_PRICE), "Booking price should not be displayed"
+        assert self.is_not_element_present(*SearchPageLocators.AVAILABILITY_LABLE), \
+            "Availability lable should not be displayed"
+    def should_still_be_opened_calendar(self):
+        show_button = self.browser.find_element(*SearchPageLocators.SHOW_BTN)
+        show_button.click()
+        assert self.is_element_visible(*SearchPageLocators.CALENDAR), "calendar should be displayed"
 
+
+
+
+
+
+
+
+    '''
     def add_to_basket(self): #добавление товара в корзину
         assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET), "Button is not presented"
         add_btn = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET)
@@ -22,8 +42,4 @@ class ProductPage(BasePage):
     def should_not_be_success_message(self): #проверка что сообщение об успехе не отображено
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
             "Success message is presented"
-
-
-
-
-
+    '''

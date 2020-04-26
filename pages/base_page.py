@@ -4,6 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
+
 class BasePage():
     def __init__(self, browser, link, timeout=10):
         self.browser = browser
@@ -21,7 +22,14 @@ class BasePage():
             return False
         return True
 
-    def is_not_element_present(self, how, what, timeout=4): #базовый метод проверки что элемент не присутствует
+    def is_element_visible(self, how, what, timeout=3): #базовый метод проверки что элемент присутствует
+        try:
+            WebDriverWait(self.browser, timeout).until(EC.visibility_of_element_located((how, what)))
+        except TimeoutException:
+            return False
+        return True
+
+    def is_not_element_present(self, how, what, timeout=3): #базовый метод проверки что элемент не присутствует
         try:
             WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
         except TimeoutException:
