@@ -18,8 +18,15 @@ class SearchPageLocators():
     HOTEL_LIST = (By.ID, "hotellist_inner")
     CALENDAR = (By.CSS_SELECTOR, ".c2-calendar-body")
     BOOKING_PRICE = (By.CSS_SELECTOR, ".bui-price-display__value")
-    AVAILABILITY_LABLE = (By.CSS_SELECTOR, "sr_cta_button")
+    AVAILABILITY_LABLE = (By.CLASS_NAME, "sr_cta_button")
     SHOW_BTN = (By.CSS_SELECTOR, ".bui-button__text")
+    #CHECK_IN = (By.CSS_SELECTOR, ".c2-day.c2-day-s-today")
+    CHECK_IN = (By.XPATH, "(*//td[contains(@class, 'c2-day')][not(contains(@class, 'disabled'))])[1]")
+    CHECK_OUT_FIELD = (By.XPATH, "(.//*[contains(@class, 'sb-date-field__display')])[2]")
+    CHECK_OUT = (By.XPATH,
+                 "(*//td[contains(@class, 'c2-day')][not(contains(@class, 'disabled'))]//span[text() = '16'])[1]")
+    SEARCH_BTN = (By.CSS_SELECTOR, ".sb-searchbox__button")
+
 
 
 

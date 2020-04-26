@@ -15,12 +15,16 @@ class ResultPage(BasePage):
         show_button = self.browser.find_element(*SearchPageLocators.SHOW_BTN)
         show_button.click()
         assert self.is_element_visible(*SearchPageLocators.CALENDAR), "calendar should be displayed"
-
-
-
-
-
-
+    def should_set_any_dates_for_check_in_and_out(self):
+        check_in = self.browser.find_element(*SearchPageLocators.CHECK_IN)
+        check_in.click()
+        #check_out_field = self.browser.find_element(*SearchPageLocators.CHECK_OUT_FIELD)
+        #check_out_field.click()
+        serch_btn = self.browser.find_element(*SearchPageLocators.SEARCH_BTN)
+        serch_btn.click()
+        lables = self.browser.find_element(*SearchPageLocators.AVAILABILITY_LABLE)
+        assert ("See availability" or "Select your room") in lables.text, \
+            f"expected 'See availability' or 'Select your room' to be substring of '{lables.text}'"
 
 
     '''

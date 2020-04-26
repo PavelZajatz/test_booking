@@ -30,4 +30,4 @@ class TestUserIsRequiredToSpecifyBookingDateToSeeBookingPrice():
         result_page.should_be_opened_calendar()
         result_page.should_not_be_displayed_booking_price()
         result_page.should_still_be_opened_calendar()
-
+        result_page.should_set_any_dates_for_check_in_and_out()
