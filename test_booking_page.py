@@ -1,7 +1,6 @@
 from .pages.base_page import BasePage
 from .pages.main_page import MainPage
 from .pages.results_page import ResultPage
-import time
 import pytest
 
 
@@ -11,15 +10,14 @@ class TestUserIsAbleToSpecifyAgeOfEachChild():
         main_page = MainPage(browser, link)
         main_page.open()
         main_page.should_add_children()
-'''
+
 class TestUserIsRequiredToSpecifyBookingDateToSeeBookingPrice():
     @pytest.fixture(scope="function", autouse=False)
     def setup(self, browser):
         link = "https://www.booking.com/"
         main_page = MainPage(browser, link)
         main_page.open()
-'''
-class TestUserIsRequiredToSpecifyBookingDateToSeeBookingPrice():
+
     def test_user(self, browser):
         link = "https://www.booking.com/"
         main_page = MainPage(browser, link)
