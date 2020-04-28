@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class BasePage():
-    def __init__(self, browser, link, timeout=10):
+    def __init__(self, browser, link, timeout=2):
         self.browser = browser
         self.link = link
         self.browser.implicitly_wait(timeout)
@@ -35,4 +35,3 @@ class BasePage():
         except TimeoutException:
             return True
         return False
-

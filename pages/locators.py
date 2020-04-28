@@ -4,10 +4,7 @@ from selenium.webdriver.common.by import By
 class MainPageLocators(): #локаторы главной страницы
     GUESTS_COUNTER = (By.XPATH, ".//*[contains(@class, 'xp__guests__count')]")
     ADD_CHILD_BTN = (By.XPATH, "(.//*[contains(@class, 'bui-button__text')])[4]")
-    FIRST_CHILD_DD = (By.CSS_SELECTOR, ".clearfix > select:nth-child(2)")
-    FIRST_CHILD_2_YEAR_OPTION = (By.CSS_SELECTOR, ".clearfix > select:nth-child(2) > option:nth-child(4)")
-    SECOND_CHILD_DD = (By.CSS_SELECTOR, ".clearfix > select:nth-child(3)")
-    SECOND_CHILD_2_YEAR_OPTION = (By.CSS_SELECTOR, ".clearfix > select:nth-child(3) > option:nth-child(4)")
+    AGE = (By.NAME, 'age')
     WHERE_ARE_YOU = (By.ID, "ss")
     LOCATION = "Za"
     AUTOCOMPLETE_LIST_OPTION = (By.CSS_SELECTOR, ".sb-autocomplete__list-with_photos > li:nth-child(1)")

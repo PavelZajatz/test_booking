@@ -1,10 +1,10 @@
-from .pages.base_page import BasePage
 from .pages.main_page import MainPage
 from .pages.results_page import ResultPage
 import pytest
 
 
 class TestUserIsAbleToSpecifyAgeOfEachChild():
+    @pytest.mark.scenario_1
     def test_user_should_be_able_to_specify_age_of_each_child(self, browser):
         link = "https://www.booking.com/"
         main_page = MainPage(browser, link)
@@ -12,13 +12,8 @@ class TestUserIsAbleToSpecifyAgeOfEachChild():
         main_page.should_add_children()
 
 class TestUserIsRequiredToSpecifyBookingDateToSeeBookingPrice():
-    @pytest.fixture(scope="function", autouse=False)
-    def setup(self, browser):
-        link = "https://www.booking.com/"
-        main_page = MainPage(browser, link)
-        main_page.open()
-
-    def test_user(self, browser):
+    @pytest.mark.scenario_2
+    def test_user_is_required_to_specify_booking_date_to_see_booking_price(self, browser):
         link = "https://www.booking.com/"
         main_page = MainPage(browser, link)
         main_page.open()

@@ -1,7 +1,6 @@
 from .base_page import BasePage
 from .locators import SearchPageLocators
 
-
 class ResultPage(BasePage):
     def should_be_result_page(self):
         assert self.is_element_present(*SearchPageLocators.HOTEL_LIST), "page with listed hotels should be opened"
