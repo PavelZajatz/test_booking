@@ -1,8 +1,7 @@
 from .pages.main_page import MainPage
 from .pages.results_page import ResultPage
 import pytest
-import allure
-from allure_commons.types import AttachmentType
+
 
 #Scenario 1. User is able to specify age of each child
 class TestUserIsAbleToSpecifyAgeOfEachChild():

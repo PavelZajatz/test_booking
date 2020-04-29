@@ -1,8 +1,9 @@
 from .base_page import BasePage
 from .locators import MainPageLocators
+import allure
+from allure_commons.types import AttachmentType
 
 class MainPage(BasePage):
-
     def should_add_children(self): #method with checking the number of age inputs is equal to N
         add_guest = self.browser.find_element(*MainPageLocators.GUESTS_COUNTER)
         add_guest.click()

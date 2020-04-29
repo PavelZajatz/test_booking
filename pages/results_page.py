@@ -1,5 +1,7 @@
 from .base_page import BasePage
 from .locators import SearchPageLocators
+import allure
+from allure_commons.types import AttachmentType
 
 class ResultPage(BasePage):
     # checking that page with listed hotels is opened
