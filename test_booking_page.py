@@ -1,8 +1,10 @@
 from .pages.main_page import MainPage
 from .pages.results_page import ResultPage
 import pytest
+import allure
+from allure_commons.types import AttachmentType
 
-
+#Scenario 1. User is able to specify age of each child
 class TestUserIsAbleToSpecifyAgeOfEachChild():
     @pytest.mark.scenario_1
     def test_user_should_be_able_to_specify_age_of_each_child(self, browser):
@@ -11,6 +13,7 @@ class TestUserIsAbleToSpecifyAgeOfEachChild():
         main_page.open()
         main_page.should_add_children()
 
+#Scenario 2. User is required to specify booking date to see booking price
 class TestUserIsRequiredToSpecifyBookingDateToSeeBookingPrice():
     @pytest.mark.scenario_2
     def test_user_is_required_to_specify_booking_date_to_see_booking_price(self, browser):
