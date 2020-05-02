@@ -5,46 +5,56 @@ import allure
 from allure_commons.types import AttachmentType
 
 
-
 class BasePage():
-    def __init__(self, browser, link, timeout=2): #basic browser initialization method
+    """
+    Class with Base methods
+    """
+    def __init__(self, browser, link, timeout=2):
+        """
+        BasePage constructor
+        :param browser: driver instance
+        :param link: site URL
+        :param timeout: an argument that indicates how long to wait
+        """
         self.browser = browser
         self.link = link
         self.browser.implicitly_wait(timeout)
 
-    def open(self):  #basic page opening method
+    def open(self):
+        """
+        Page opening method
+        """
         self.browser.get(self.link)
 
-    def screenshot(self): #method for making screenshot for allure report
+    def screenshot(self):
+        """
+        Screenshot making method for allure report
+        """
         with allure.step("make screenshot"):
             allure.attach(self.browser.get_screenshot_as_png(), name='Screenshot', attachment_type=AttachmentType.PNG)
 
-
-    def is_element_visible(self, how, what, timeout=3): #basic method of checking that the element is visible
+    def is_element_visible(self, how, what, timeout=3):
+        """
+        Basic method of checking that the element is visible
+        :param how: an argument that indicates how to search (css, id, xpath и i.e.)
+        :param what: an argument that indicates what to search for (selector string)
+        :param timeout: an argument that indicates how long to wait
+        :return: bool. return True if the element is visible else it will return False
+        """
         try:
             WebDriverWait(self.browser, timeout).until(EC.visibility_of_element_located((how, what)))
         except TimeoutException:
             return False
         return True
 
-
-    def is_element_present(self, how, what, timeout=3):  #basic method of checking that an element is present
-        try:
-            WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
-        except TimeoutException:
-            return False
-        return True
-    '''
-
-    def is_element_present(self, how, what):  # базовый метод проверки что элемент присутствует
-        try:
-            self.browser.find_element(how, what)
-        except NoSuchElementException:
-            return False
-        return True
-    '''
-
-    def is_not_element_present(self, how, what, timeout=3): #basic method of checking that an element isn't present
+    def is_not_element_present(self, how, what, timeout=3):
+        """
+        Basic method of checking that an element isn't present
+        :param how: an argument that indicates how to search (css, id, xpath и i.e.)
+        :param what: an argument that indicates what to search for (selector string)
+        :param timeout: an argument that indicates how long to wait
+        :return:  bool. return False if the element is present else it will return True
+        """
         try:
             WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
         except TimeoutException:

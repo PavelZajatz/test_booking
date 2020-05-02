@@ -1,5 +1,5 @@
 # Object
-This is a project for testing booking.com web-site using Selenium, Python, Pytest and page object model.
+This is a project for testing www.booking.com web-site using Selenium, Python, Pytest, Allure and page object model.
 
 # File structure
  
@@ -16,6 +16,7 @@ This is a project for testing booking.com web-site using Selenium, Python, Pytes
 
 #How to install it
 - Make sure you have python installed on your machine by typing in console "python --version" if not go to https://realpython.com/installing-python/#step-1-download-the-python-3-installer.
+- To run Allure reports, you need install Allure: https://docs.qameta.io/allure/
 - Clone the repository to any local path.
 - Note: This has been created using Python environment in order to have all dependencies in the same folder rather than taking the packages for the global python configuration.
 - To run these tests, you need to download the Geko-Driver file for managing the Firefox browser and ChromeDriver for Google Chrome. You can download the file here:
@@ -24,32 +25,8 @@ This is a project for testing booking.com web-site using Selenium, Python, Pytes
   - https://github.com/mozilla/geckodriver/releases
 Download and and unzip it into the:  C:\geckodriver folder on Windows, /usr/local / bin on Ubuntu and macOS.
 
-- To run Allure reports, you need install Allure:
-  
-  1. Linux
 
-    ```shell
-    $ sudo apt-add-repository ppa:qameta/allure
-    $ sudo apt-get update 
-    $ sudo apt-get install allure
-    ```
-    2. Mac OS X. For Mas OS, automated installation is available via Homebrew
-    ```shell
-    $ brew install allure
-    ```
-    3. Windows. For Windows, Allure is available from the Scoop commandline-installer.
 
-To install Allure, download and install Scoop and then execute in the Powershell:
-
-   
-    $ scoop install allure
-    
-Also Scoop is capable of updating Allure distribution installations. To do so navigate to the Scoop installation directory and execute
-
-\bin\checkver.ps1 allure -u
-This will check for newer versions of Allure, and update the manifest file. Then execute
-
-scoop update allure
 
  - After you download these files, you need to install
 all dependencies:
@@ -58,6 +35,7 @@ $ pip3 install -r requirements.txt
 ```
 #How to run it
 
+Activate test environment.
 
 To run all tests type in terminal:
 ```shell
