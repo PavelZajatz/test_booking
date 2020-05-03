@@ -42,18 +42,12 @@ To run all tests type in terminal:
 $ pytest -s -v test_booking/test_booking_page.py
 ```
 To run test scenario 1 type in terminal:
-```shell
-$ pytest -s -v -m scenario_1 test_booking/test_booking_page.py 
-```
-or
+
 ```shell
 $ pytest -s -v test_booking/test_booking_page.py::TestUserIsAbleToSpecifyAgeOfEachChild
 ``` 
 To run test scenario 2 type in terminal:
-```shell
-$ pytest -s -v -m scenario_2 test_booking/test_booking_page.py 
-```
-or
+
 ```shell
 $ pytest -s -v test_booking/test_booking_page.py::TestUserIsRequiredToSpecifyBookingDateToSeeBookingPrice 
 ```

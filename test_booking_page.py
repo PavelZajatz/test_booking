@@ -12,7 +12,7 @@ class TestUserIsAbleToSpecifyAgeOfEachChild():
     3. specify N number of children (N > 1)
     Expect: the number of age inputs is equal to N
     """
-    @pytest.mark.scenario_1
+
     def test_user_should_be_able_to_specify_age_of_each_child(self, browser):
         """
         Test scenario 1
@@ -40,7 +40,7 @@ class TestUserIsRequiredToSpecifyBookingDateToSeeBookingPrice():
     4. Submit search form
     Expect: each result entry has booking price or banner saying no free places
     """
-    @pytest.mark.scenario_2
+
     def test_user_is_required_to_specify_booking_date_to_see_booking_price(self, browser):
         """
         Test scenario 2
