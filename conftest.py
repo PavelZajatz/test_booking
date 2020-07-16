@@ -1,8 +1,8 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-#from webdriver_manager.chrome import ChromeDriverManager
-#from webdriver_manager.firefox import GeckoDriverManager
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
 
 import time
 
@@ -22,12 +22,12 @@ def browser(request):
         options.add_argument("--kiosk")
         options.add_argument("–disable-infobars")
         options.add_experimental_option("prefs", {"intl.accept_languages": user_language})
-        browser = webdriver.Chrome(executable_path='path/to/chromedriver', options=options)
-        #ChromeDriverManager().install()
+        browser = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+
     elif (browser_name=="firefox"):
         fp = webdriver.FirefoxProfile()
         fp.set_preference("intl.accept_languages", user_language)
-        #browser = webdriver.Firefox(GeckoDriverManager().install(), firefox_profile=fp)
+        browser = webdriver.Firefox(GeckoDriverManager().install(), firefox_profile=fp)
         browser.maximize_window()
 
     else:
